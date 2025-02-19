@@ -1,0 +1,26 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [workflow_dispatch]
+jobs:
+  DEV:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout catalogue Helm repo
+      uses: actions/checkout@v4
+      with:
+        repository: azawsdevops/aks-roboshop-helm
+    - run: |
+        bash argocd.sh catalogue dev
+        echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+  QAS:
+    needs: DEV
+    runs-on: self-hosted
+    steps:
+    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+  PROD:
+    needs: [DEV, QAS]
+    runs-on: self-hosted
+    steps:
+    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+    
+    ###
