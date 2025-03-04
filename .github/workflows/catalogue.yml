@@ -4,6 +4,10 @@ on:
   push:
     branches:
     - main
+    with:
+    secrets:
+      VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+      
 jobs:
   ci:
     uses: azawsdevops/github-reusable-modules/.github/workflows/ci.yaml@main
