@@ -1,0 +1,28 @@
+name: catalogue CICD - Dev Branch
+run-name: catalogue CICD - Dev Branch
+on:
+  push:
+    branches:
+    - 'RB-**'
+jobs:
+  ci:
+    uses: azawsdevops/github-reusable-modules/.github/workflows/dev-branch.yaml@main
+    with:
+      component: catalogue
+      appType: nodejs
+    secrets:
+      VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+
+#  deploy:
+#    uses: azawsdevops/github-reusable-modules/.github/workflows/deploy.yaml@main
+#    with:
+#      component: cart
+#    
+    
+  
+      
+      
+      
+
+      
+      

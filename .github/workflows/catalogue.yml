@@ -1,20 +1,20 @@
-name: Catalogue CICD 
-run-name: Catalogue CICD 
-on:
-  push:
-    branches:
-    - main
-    with:
-    secrets:
-      VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
-      
-jobs:
-  ci:
-    uses: azawsdevops/github-reusable-modules/.github/workflows/ci.yaml@main
-    with:
-      component: cart
-  deploy:
-    uses: azawsdevops/github-reusable-modules/.github/workflows/deploy.yaml@main
-    with:
-      component: Catalogue
-      appType: nodejs
+#name: Catalogue CICD 
+#run-name: Catalogue CICD 
+#on:
+#  push:
+#    branches:
+#    - main
+#    with:
+#    secrets:
+#      VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+#      
+#jobs:
+#  ci:
+#    uses: azawsdevops/github-reusable-modules/.github/workflows/ci-main-branch.yaml@main
+#    with:
+#      component: cart
+#  deploy:
+#    uses: azawsdevops/github-reusable-modules/.github/workflows/deploy.yaml@main
+#    with:
+#      component: Catalogue
+#      appType: nodejs

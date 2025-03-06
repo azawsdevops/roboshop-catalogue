@@ -1,0 +1,14 @@
+name: catalogue CICD - PR Branch
+run-name: catalogue CICD - PR Branch
+on:
+  push:
+    branches:
+    - main
+jobs:
+  ci:
+    uses: azawsdevops/github-reusable-modules/.github/workflows/pull-request.yaml@main
+    with:
+      component: catalogue
+      appType: nodejs
+    secrets:
+      VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
