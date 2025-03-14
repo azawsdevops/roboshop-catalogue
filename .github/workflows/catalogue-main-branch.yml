@@ -3,7 +3,7 @@ run-name: catalogue CICD - main Branch
 on:
   push:
     branches:
-    - 'RB-**'
+    - main
 jobs:
   ci:
     uses: azawsdevops/github-reusable-modules/.github/workflows/ci-main-branch.yaml@main
