@@ -24,3 +24,4 @@ COPY . .
 USER node  
 
 CMD ["node", "server.js"]
+
