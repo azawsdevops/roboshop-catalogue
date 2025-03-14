@@ -5,23 +5,27 @@
 #USER node 
 #ENTRYPOINT  ["node", "server.js"]
 
+FROM node:18
 
-FROM node:18  
-
+# Set working directory
 WORKDIR /home/node
 
-# Copy only package files first to leverage Docker cache
+# Copy package files first for better cache use
 COPY package.json server.js ./
 
-# Temporarily run as root to install packages
-RUN npm install --omit=dev
-COPY node_modules/ node_modules/
+# Ensure this part runs as root (temporary)
+USER root
 
-# Copy the rest of the app files
+# Install dependencies with root permissions
+RUN npm install --omit=dev
+
+# Copy the rest of your app’s code
 COPY . .
 
-# Now drop to a safer user
-USER node  
+# Now switch to a non-root user (safer)
+USER node
 
+# Define the default command
 CMD ["node", "server.js"]
+
 
