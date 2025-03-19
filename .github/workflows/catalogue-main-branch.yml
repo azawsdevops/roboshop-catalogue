@@ -16,4 +16,4 @@ jobs:
   deploy:
     uses: azawsdevops/github-reusable-modules/.github/workflows/deploy.yaml@main
     with:
-      component: cart
+      component: catalogue
